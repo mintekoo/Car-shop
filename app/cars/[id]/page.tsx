@@ -6,6 +6,8 @@ import { API_BASE_URL } from "@/lib/api";
 import type { Product } from "@/lib/types";
 import Image from "next/image";
 import Link from "next/link";
+import BookingForm from "@/components/form/BookingForm";
+import BookingSection from "@/components/form/BookingSection";
 
 function parseArrayField(value: unknown): string[] {
   if (Array.isArray(value)) return value as string[];
@@ -109,9 +111,7 @@ export default async function CarDetailPage({ params }: { params: Promise<{ id: 
                 <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{product.description}</p>
               </div>
             )}
-            <Link href={`/bookings?productId=${product.id}`}>
-              <Button className="w-full">Book Now</Button>
-            </Link>
+              <BookingSection productId={product.id} pricePerDay={product.pricePerDay} />
           </aside>
         </div>
       </Container>

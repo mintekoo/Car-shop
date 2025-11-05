@@ -21,7 +21,7 @@ export default function Navbar() {
           <Link href="/categories" className="hover:text-primary-600 transition-colors">Categories</Link>
           <Link href="/blogs" className="hover:text-primary-600 transition-colors">Blog</Link>
           <Link href="/testimonials" className="hover:text-primary-600 transition-colors">Testimonials</Link>
-          <Link href="/bookings" className="hover:text-primary-600 transition-colors">Bookings</Link>
+          {/* <Link href="/bookings" className="hover:text-primary-600 transition-colors">Bookings</Link> */}
         </nav>
         <div className="flex items-center gap-3">
           {/* <Link

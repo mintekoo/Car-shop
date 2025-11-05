@@ -71,6 +71,16 @@ export type Booking = {
   updatedAt?: string;
 };
 
+// Create Booking Input Type
+export type CreateBookingInput = {
+  productId: number;
+  fullName: string;
+  Phone: string;
+  startDate: string; 
+  endDate: string;
+  totalPrice: number;
+};
+
 // Testimonial type
 export type Testimonial = {
   id: number;

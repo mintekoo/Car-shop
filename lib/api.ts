@@ -5,6 +5,7 @@ import type {
   Meta,
   Product,
   Booking,
+  // CreateBookingInput,
   Testimonial,
   Blog,
   Category,
@@ -75,6 +76,16 @@ export async function fetchBookings(query: { page?: number; perPage?: number } =
 export async function fetchBooking(id: string) {
   return request<Booking>(`/api/bookings/${id}`, { next: { revalidate: 60 } });
 }
+
+// export async function createBooking(data: CreateBookingInput) {
+//   return request<{ 
+//     message: string; 
+//     booking: Booking; 
+//   }>("/api/bookings", {
+//     method: "POST",
+//     body: JSON.stringify(data),
+//   });
+// }
 
 // Testimonials
 export async function fetchTestimonials(query: { page?: number; perPage?: number } = {}) {
