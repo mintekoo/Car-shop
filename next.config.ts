@@ -3,7 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   images: {
     domains: [
-      'localhost'
+      // 'localhost'
+      'api.adinascarrent.com'
     ],
   },
   /* config options here */
