@@ -11,8 +11,8 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
 
   const fullImage = blog.image ? `${API_BASE_URL}/${blog.image}` : "/window.svg";
 
-  const categoryName = blog.Category?.name ?? "Uncategorized";
-  const publishDate = blog.createdAt ? new Date(blog.createdAt).toLocaleDateString() : "";
+  // const categoryName = blog.Category?.name ?? "Uncategorized";
+  // const publishDate = blog.createdAt ? new Date(blog.createdAt).toLocaleDateString() : "";
 
   return (
     <main className="bg-background text-foreground dark:bg-backgroundDark dark:text-foregroundDark">
@@ -30,9 +30,9 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ id:
             </div>
           )}
           <h1 className="text-2xl font-heading font-semibold sm:text-3xl">{blog.title}</h1>
-          <div className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+          {/* <div className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
             By {blog.User.firstName} {blog.User.lastName} • {categoryName} • {publishDate}
-          </div>
+          </div> */}
           <article className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
             {blog.content}
           </article>

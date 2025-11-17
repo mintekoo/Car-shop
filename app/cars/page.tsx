@@ -8,9 +8,9 @@ import type { Product } from "@/lib/types";
 import Image from "next/image";
 import Link from "next/link";
 
-function toOwnerName(p: Product) {
-  return `${p.User.firstName} ${p.User.lastName}`.trim();
-}
+// function toOwnerName(p: Product) {
+//   return `${p.User.firstName} ${p.User.lastName}`.trim();
+// }
 
 function ProductCardInline({ p }: { p: Product }) {
   let images: string[] = [];
@@ -60,12 +60,12 @@ function ProductCardInline({ p }: { p: Product }) {
         <p className="text-sm text-zinc-600 dark:text-zinc-400">
           {p.make} {p.model} • {p.year}
         </p>
-        <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
+        {/* <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-500">
           <span className="rounded-full bg-primary-50 px-2 py-0.5 text-primary-700 ring-1 ring-primary-100">
             {p.Category?.name ?? "Uncategorized"}
           </span>
           <span>Owner: {toOwnerName(p)}</span>
-        </div>
+        </div> */}
       </div>
       <div className="mt-4 flex justify-between gap-2 px-4 pb-4">
         {/* Know More / View Details */}

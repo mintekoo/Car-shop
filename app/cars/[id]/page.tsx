@@ -35,8 +35,8 @@ export default async function CarDetailPage({ params }: { params: Promise<{ id: 
 
   const features = parseArrayField(product.features);
 
-  const categoryName = product.Category?.name ?? "Uncategorized";
-  const ownerName = `${product.User?.firstName ?? ""} ${product.User?.lastName ?? ""}`.trim() || "Unknown Owner";
+  // const categoryName = product.Category?.name ?? "Uncategorized";
+  // const ownerName = `${product.User?.firstName ?? ""} ${product.User?.lastName ?? ""}`.trim() || "Unknown Owner";
 
   return (
     <main className="bg-background text-foreground dark:bg-backgroundDark dark:text-foregroundDark">
@@ -44,7 +44,8 @@ export default async function CarDetailPage({ params }: { params: Promise<{ id: 
         <div className="mb-6">
           <h1 className="text-2xl font-heading font-semibold sm:text-3xl">{product.title}</h1>
           <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-            {product.make} {product.model} • {product.year} • {categoryName}
+            {product.make} {product.model} • {product.year}
+             {/* • {categoryName} */}
           </p>
         </div>
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
@@ -85,13 +86,13 @@ export default async function CarDetailPage({ params }: { params: Promise<{ id: 
                 {product.status}
               </span>
             </div>
-            <div>
+            {/* <div>
               <div className="text-sm font-medium">Owner</div>
               <div className="text-sm text-zinc-600 dark:text-zinc-400">
                 {ownerName}
                 {product.location ? ` • ${product.location}` : ""}
               </div>
-            </div>
+            </div> */}
             {features.length ? (
               <div>
                 <div className="text-sm font-medium">Features</div>

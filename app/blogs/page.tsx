@@ -51,9 +51,9 @@ export default async function BlogsPage(props: {
                 <div className="space-y-3 p-4">
                   <time className="text-xs text-zinc-500">{b.createdAt ? new Date(b.createdAt).toLocaleDateString() : ""}</time>
                   <h3 className="text-base font-semibold leading-6">{b.title}</h3>
-                  <p className="text-xs text-zinc-500">
+                  {/* <p className="text-xs text-zinc-500">
                     By {b.User.firstName} {b.User.lastName} • {b.Category?.name ?? ""}
-                  </p>
+                  </p> */}
                   <p className="line-clamp-3 text-sm text-zinc-600 dark:text-zinc-400">{b.content}</p>
                 </div>
                 {/* Know More / View Details */}

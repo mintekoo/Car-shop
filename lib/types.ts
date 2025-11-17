@@ -79,6 +79,7 @@ export type CreateBookingInput = {
   startDate: string; 
   endDate: string;
   totalPrice: number;
+  driver?: "yes" | "no";
 };
 
 // Testimonial type

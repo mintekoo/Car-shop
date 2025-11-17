@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
+import RadioButton from "@/components/ui/RadioButton";
 import { API_BASE_URL } from "@/lib/api";
 
 // Simple Ethiopian phone validation (matches backend logic)
@@ -32,6 +33,8 @@ export default function BookingForm({ productId, pricePerDay }: BookingFormProps
     const [loading, setLoading] = useState(false);
     const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
     const [phoneError, setPhoneError] = useState<string | null>(null);
+    const [driver, setDriver] = useState<"yes" | "no">("no");
+
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -57,6 +60,7 @@ export default function BookingForm({ productId, pricePerDay }: BookingFormProps
                     Phone: phone,
                     startDate,
                     endDate,
+                    driver,
                     totalPrice: calculateTotalPrice(),
                 }),
             });
@@ -105,9 +109,8 @@ export default function BookingForm({ productId, pricePerDay }: BookingFormProps
                     type="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className={`mt-1 w-full rounded-md border px-3 py-2 ${
-                        phoneError ? "border-red-500" : ""
-                    }`}
+                    className={`mt-1 w-full rounded-md border px-3 py-2 ${phoneError ? "border-red-500" : ""
+                        }`}
                     required
                 />
                 {phoneError && <p className="text-red-500 text-sm mt-1">{phoneError}</p>}
@@ -133,6 +136,26 @@ export default function BookingForm({ productId, pricePerDay }: BookingFormProps
                     required
                 />
             </div>
+            <div>
+                <label className="block text-sm font-medium">Need a Driver?</label>
+
+                <div className="flex gap-4 mt-1">
+                    <RadioButton
+                        name="driver"
+                        label="Yes"
+                        value="yes"
+                        checked={driver === "yes"}
+                        onChange={setDriver}
+                    />
+                    <RadioButton
+                        name="driver"
+                        label="No"
+                        value="no"
+                        checked={driver === "no"}
+                        onChange={setDriver}
+                    />
+                </div>
+            </div>
             <div className="text-sm">
                 Total Price: ETB {calculateTotalPrice()}
             </div>
@@ -143,9 +166,8 @@ export default function BookingForm({ productId, pricePerDay }: BookingFormProps
             {/* Inline Toast */}
             {toast && (
                 <div
-                    className={`fixed top-4 right-4 p-3 rounded shadow-md text-white z-50 ${
-                        toast.type === "success" ? "bg-green-500" : "bg-red-500"
-                    }`}
+                    className={`fixed top-4 right-4 p-3 rounded shadow-md text-white z-50 ${toast.type === "success" ? "bg-green-500" : "bg-red-500"
+                        }`}
                 >
                     {toast.message}
                 </div>

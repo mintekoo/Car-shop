@@ -30,10 +30,10 @@ export default function BlogCard({ blog }: { blog: BlogCardType }) {
         {blog.date && <time className="text-xs text-zinc-500">{blog.date}</time>}
         <h3 className="text-base font-semibold leading-6">{blog.title}</h3>
         <p className="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-3">{blog.excerpt}</p>
-        <div className="flex items-center justify-between text-xs text-zinc-500">
+        {/* <div className="flex items-center justify-between text-xs text-zinc-500">
           {blog.author && <span>By {blog.author}</span>}
           {blog.category && <span>{blog.category}</span>}
-        </div>
+        </div> */}
         <Link href={`/blogs/${blog.id}`} className="text-sm font-medium text-blue-600 hover:underline">
           Read more →
         </Link>
