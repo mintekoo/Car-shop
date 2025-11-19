@@ -136,3 +136,13 @@ export type About = {
   updatedAt?: string;
 };
 
+export type Partner = {
+  id?: number;
+  name: string;
+  image?: string | File | null; 
+  contact: string[];
+  createdAt?: string;
+  updatedAt?: string;
+};
+
+

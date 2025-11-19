@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
+import { Phone, Mail, MapPin, Globe } from "lucide-react";
 
 export default function Footer() {
   const productLinks = [
@@ -21,11 +22,40 @@ export default function Footer() {
     { name: "Contact", href: "#contact" },
   ];
 
+
+
+  const contactInfo = [
+    {
+      icon: MapPin,
+      text: "Addis Ababa, around Pushkin Square",
+    },
+    {
+      icon: Phone,
+      text: "0911 510313 / 0977 777717 / 911 323333",
+      href: "tel:0911510313", // clickable first phone for simplicity
+    },
+    {
+      icon: Mail,
+      text: "soliyano10@gmail.com",
+      href: "mailto:soliyano10@gmail.com",
+    },
+    {
+      icon: Mail,
+      text: "adinascarrent@gmail.com",
+      href: "mailto:adinascarrent@gmail.com",
+    },
+    {
+      icon: Globe,
+      text: "www.adinascarrent.com",
+      href: "https://adinascarrent.com",
+    },
+  ];
+
   return (
     <footer className="mt-16 border-t border-zinc-200/70 dark:border-zinc-800/60 bg-white/60 dark:bg-black/40">
       <Container className="py-12 flex flex-col gap-10 md:gap-16">
         {/* Top: Brand + Multi-column Links */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
           {/* Brand / About */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
@@ -80,6 +110,31 @@ export default function Footer() {
               ))}
             </ul>
           </div>
+
+          {/* Contact Info */}
+          <div className="space-y-2">
+            <h3 className="text-sm font-semibold text-zinc-800 dark:text-zinc-200">Contact</h3>
+            <ul className="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+              {contactInfo.map((info, index) => (
+                <li key={index} className="flex items-start gap-2">
+                  <info.icon className="w-4 h-4 mt-1 text-primary-600 flex-shrink-0" />
+                  {info.href ? (
+                    <a
+                      href={info.href}
+                      className="hover:text-primary-600 transition-colors underline"
+                      target={info.href.startsWith("http") ? "_blank" : undefined}
+                      rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    >
+                      {info.text}
+                    </a>
+                  ) : (
+                    <span>{info.text}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
         </div>
 
         {/* Bottom: Copyright */}

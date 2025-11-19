@@ -11,6 +11,7 @@ import type {
   Category,
   About,
   Service,
+  Partner,
 } from "./types";
 
 type FetchOptions = RequestInit & { next?: { revalidate?: number } };
@@ -185,4 +186,28 @@ export async function fetchServices(
 
 export async function fetchService(id: string | number) {
   return request<Service>(`/api/services/${id}`, { next: { revalidate: 300 } });
+}
+
+// Partners
+export async function fetchPartners(
+  query: { page?: number; perPage?: number } = {}
+) {
+  const q = buildQuery({
+    page: query.page,
+    perPage: query.perPage,
+  });
+
+  const res = await request<{ data: Partner[]; meta: Meta }>(
+    `/api/partners${q}`,
+    { next: { revalidate: 120 } }
+  );
+
+  return {
+    data: res.data,
+    meta: res.meta,
+  };
+}
+
+export async function fetchPartner(id: string | number) {
+  return request<Partner>(`/api/partners/${id}`, { next: { revalidate: 120 } });
 }

@@ -6,11 +6,12 @@ import BlogSection from "@/components/sections/BlogSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import AboutSection from "@/components/sections/AboutSection";
-import { fetchAbouts, fetchProducts, fetchServices } from "@/lib/api";
-import { fetchCategories } from "@/lib/api";
-import { fetchBlogs } from "@/lib/api";
-import { fetchTestimonials } from "@/lib/api";
-import type { Product, Category, Blog, Service, About, Testimonial } from "@/lib/types";
+import PartnersSection from "@/components/sections/PartnersSection";
+import Excellence from "@/app/staticsPages/Excellence";
+import Differentiators from "@/app/staticsPages/Differentiators";
+import Clients from "@/app/staticsPages/Clients";
+import { fetchAbouts, fetchProducts, fetchServices, fetchCategories, fetchBlogs, fetchPartners, fetchTestimonials } from "@/lib/api";
+import type { Product, Category, Blog, Service, About, Testimonial, Partner } from "@/lib/types";
 
 export const metadata = {
   title: "CarShop — Modern Car Store",
@@ -45,6 +46,7 @@ export default async function Home() {
     blogsResp,
     servicesResp,
     aboutsResp,
+    partnersResp,
     testimonialsResp,
   ] = await Promise.all([
     fetchProducts({ page: 1, perPage: 6 }),
@@ -52,6 +54,7 @@ export default async function Home() {
     fetchBlogs({ page: 1, perPage: 10 }),
     fetchServices({ page: 1, perPage: 10 }),
     fetchAbouts({ page: 1, perPage: 4 }),
+    fetchPartners(),
     fetchTestimonials({ page: 1, perPage: 3 }),
   ]);
 
@@ -60,6 +63,7 @@ export default async function Home() {
   const recentBlogs: Blog[] = blogsResp?.blogs ?? [];
   const services: Service[] = servicesResp?.services ?? [];
   const abouts: About[] = aboutsResp?.abouts ?? [];
+  const partners: Partner[] = partnersResp?.data ?? [];
   const testimonials: Testimonial[] = testimonialsResp?.testimonials ?? [];
 
   return (
@@ -70,6 +74,10 @@ export default async function Home() {
       <BlogSection blogs={recentBlogs} />
       <ServicesSection services={services} />
       <AboutSection abouts={abouts} />
+      <Excellence />
+      <Differentiators />
+      <Clients />
+      <PartnersSection partners={partners} />
       <TestimonialsSection testimonials={testimonials} />
     </main>
   );
