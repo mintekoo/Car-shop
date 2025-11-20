@@ -6,7 +6,7 @@ import { Phone, Mail, MapPin, Globe } from "lucide-react";
 export default function Footer() {
   const productLinks = [
     { name: "Products", href: "/cars" },
-    { name: "Categories", href: "/categories" },
+    { name: "Our Fleet", href: "/categories" },
   ];
 
   const companyLinks = [
@@ -60,12 +60,12 @@ export default function Footer() {
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
               <span className="inline-flex h-10 w-20 items-center justify-center rounded-lg bg-blue-600 text-white shadow-sm">
-                ADDINAS
+                ADINAS
               </span>
               <span className="text-lg font-semibold">Car Rental</span>
             </Link>
             <p className="text-sm text-zinc-600 dark:text-zinc-400">
-              Your trusted platform for quality cars and automotive resources.
+              Adinas Car Rental – Your trusted partner in safe, reliable, and efficient transport solutions..
             </p>
           </div>
 

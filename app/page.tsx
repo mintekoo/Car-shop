@@ -9,6 +9,7 @@ import AboutSection from "@/components/sections/AboutSection";
 import PartnersSection from "@/components/sections/PartnersSection";
 import Excellence from "@/app/staticsPages/Excellence";
 import Differentiators from "@/app/staticsPages/Differentiators";
+import Contact from "./staticsPages/Contact";
 import Clients from "@/app/staticsPages/Clients";
 import { fetchAbouts, fetchProducts, fetchServices, fetchCategories, fetchBlogs, fetchPartners, fetchTestimonials } from "@/lib/api";
 import type { Product, Category, Blog, Service, About, Testimonial, Partner } from "@/lib/types";
@@ -78,6 +79,7 @@ export default async function Home() {
       <Differentiators />
       <Clients />
       <PartnersSection partners={partners} />
+      <Contact />
       <TestimonialsSection testimonials={testimonials} />
     </main>
   );

@@ -26,7 +26,7 @@ export default function CategoriesSection({ categories }: CategoriesSectionProps
     <section id="categories" className="py-14 sm:py-16 lg:py-20">
       <Container>
         <div className="mb-8 flex items-center justify-between gap-4">
-          <h2 className="text-2xl font-semibold sm:text-3xl">Browse by category</h2>
+          <h2 className="text-2xl font-semibold sm:text-3xl">Browse by Our Fleet</h2>
           <Link href="/categories" className="text-sm font-medium text-primary-600 hover:underline">
             View all
           </Link>

@@ -15,7 +15,7 @@ export default async function CategoriesPage() {
     <main className="bg-background text-foreground dark:bg-backgroundDark dark:text-foregroundDark">
       <Container className="py-12 sm:py-16 lg:py-20">
         <SectionHeader
-          title="Browse by Category"
+          title="Browse by Our Fleet"
           subtitle="Explore vehicles by type and purpose."
         />
 

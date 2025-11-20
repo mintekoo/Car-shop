@@ -10,12 +10,13 @@ import Container from "@/components/ui/Container";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/cars", label: "Products" },
-  { href: "/categories", label: "Categories" },
+  { href: "/categories", label: "Our Fleet" },
   { href: "/blogs", label: "Blog" },
   { href: "/abouts", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/partners", label: "Partners" },
+  { href: "/contacts", label: "Contact Us" },
   // { href: "/bookings", label: "Bookings" },
 ];
 
