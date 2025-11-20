@@ -12,6 +12,7 @@ import type {
   About,
   Service,
   Partner,
+  Gallery,
 } from "./types";
 
 type FetchOptions = RequestInit & { next?: { revalidate?: number } };
@@ -210,4 +211,30 @@ export async function fetchPartners(
 
 export async function fetchPartner(id: string | number) {
   return request<Partner>(`/api/partners/${id}`, { next: { revalidate: 120 } });
+}
+
+// Fetch paginated galleries
+export async function fetchGalleries(
+  query: { page?: number; perPage?: number } = {}
+) {
+  const q = buildQuery({
+    page: query.page,
+    perPage: query.perPage,
+  });
+
+  return request<{ data: Gallery[]; meta: Meta }>(`/api/galleries${q}`, {
+    next: { revalidate: 120 },
+  });
+}
+
+// Fetch a single gallery by ID
+
+export async function fetchGallery(id: number | string): Promise<Gallery> {
+  const res = await request<{ success: boolean; data: Gallery }>(
+    `/api/galleries/${id}`,
+    {
+      next: { revalidate: 120 },
+    }
+  );
+  return res.data;
 }

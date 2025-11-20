@@ -76,7 +76,7 @@ export type CreateBookingInput = {
   productId: number;
   fullName: string;
   Phone: string;
-  startDate: string; 
+  startDate: string;
   endDate: string;
   totalPrice: number;
   driver?: "yes" | "no";
@@ -91,6 +91,8 @@ export type Testimonial = {
   image?: string | null;
   userId?: number | null;
   User?: User | null;
+  company?: string | null;
+  position?: string | null;
   isActive?: boolean;
   createdAt?: string;
   updatedAt?: string;
@@ -139,10 +141,17 @@ export type About = {
 export type Partner = {
   id?: number;
   name: string;
-  image?: string | File | null; 
+  image?: string | File | null;
   contact: string[];
   createdAt?: string;
   updatedAt?: string;
 };
 
 
+export type Gallery = {
+  images: string[];
+  id: number;
+  title: string;
+  createdAt?: string;
+  updatedAt?: string;
+};

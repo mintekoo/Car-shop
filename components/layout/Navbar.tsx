@@ -16,8 +16,8 @@ const navLinks = [
   { href: "/services", label: "Services" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/partners", label: "Partners" },
+  { href: "/galleries", label: "Gallery" },
   { href: "/contacts", label: "Contact Us" },
-  // { href: "/bookings", label: "Bookings" },
 ];
 
 export default function Navbar() {

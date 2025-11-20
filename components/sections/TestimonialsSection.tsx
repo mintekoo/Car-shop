@@ -18,6 +18,8 @@ function mapBackendTestimonial(t: BackendTestimonial): TestimonialCardType {
     rating: t.rating,
     imageUrl: fullImage,
     email: t.User?.email || undefined,
+    position: t.position || undefined,
+    company: t.company || undefined,
   };
 }
 
