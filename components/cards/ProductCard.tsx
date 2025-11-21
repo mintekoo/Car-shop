@@ -29,9 +29,9 @@ export default function ProductCard({ product }: Props) {
       <div className="space-y-3 p-4">
         <div className="flex items-start justify-between gap-3">
           <h3 className="text-base font-semibold leading-6">{product.name}</h3>
-          <span className="rounded-full bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
+          {/* <span className="rounded-full bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
             {product.price}
-          </span>
+          </span> */}
         </div>
         {product.tags && (
           <div className="flex flex-wrap gap-2">

@@ -78,10 +78,10 @@ export default async function CarDetailPage({ params }: { params: Promise<{ id: 
           </div>
           <aside className="space-y-5 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-zinc-200 dark:bg-zinc-950 dark:ring-zinc-800 animate-slide-up">
             <div className="flex items-center justify-between">
-              <div>
+              {/* <div>
                 <div className="text-sm text-zinc-500">Price per day</div>
                 <div className="text-2xl font-semibold">ETB {product.pricePerDay}</div>
-              </div>
+              </div> */}
               <span className="rounded-full bg-primary-50 px-2 py-1 text-xs font-medium text-primary-700 ring-1 ring-primary-100">
                 {product.status}
               </span>
@@ -109,7 +109,7 @@ export default async function CarDetailPage({ params }: { params: Promise<{ id: 
                 <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{product.description}</p>
               </div>
             )}
-              <BookingSection productId={product.id} pricePerDay={product.pricePerDay} />
+              <BookingSection productId={product.id} />
           </aside>
         </div>
       </Container>

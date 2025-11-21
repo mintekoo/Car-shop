@@ -22,10 +22,9 @@ function isValidEthiopianPhone(phone: string) {
 
 type BookingFormProps = {
     productId: number;
-    pricePerDay: number;
 };
 
-export default function BookingForm({ productId, pricePerDay }: BookingFormProps) {
+export default function BookingForm({ productId }: BookingFormProps) {
     const [fullName, setFullName] = useState("");
     const [phone, setPhone] = useState("");
     const [startDate, setStartDate] = useState("");
@@ -61,7 +60,6 @@ export default function BookingForm({ productId, pricePerDay }: BookingFormProps
                     startDate,
                     endDate,
                     driver,
-                    totalPrice: calculateTotalPrice(),
                 }),
             });
 
@@ -81,14 +79,6 @@ export default function BookingForm({ productId, pricePerDay }: BookingFormProps
             setLoading(false);
             setTimeout(() => setToast(null), 3000);
         }
-    };
-
-    const calculateTotalPrice = () => {
-        if (!startDate || !endDate) return 0;
-        const start = new Date(startDate);
-        const end = new Date(endDate);
-        const days = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)) || 1;
-        return days * pricePerDay;
     };
 
     return (
@@ -156,9 +146,6 @@ export default function BookingForm({ productId, pricePerDay }: BookingFormProps
                     />
                 </div>
             </div>
-            <div className="text-sm">
-                Total Price: ETB {calculateTotalPrice()}
-            </div>
             <Button type="submit" disabled={loading} className="w-full">
                 {loading ? "Booking..." : "Book Now"}
             </Button>
@@ -166,12 +153,13 @@ export default function BookingForm({ productId, pricePerDay }: BookingFormProps
             {/* Inline Toast */}
             {toast && (
                 <div
-                    className={`fixed top-4 right-4 p-3 rounded shadow-md text-white z-50 ${toast.type === "success" ? "bg-green-500" : "bg-red-500"
-                        }`}
+                    className={`fixed bottom-4 right-4 left-4 md:left-auto md:max-w-xs p-3 rounded shadow-md text-white z-50 transition
+                    ${toast.type === "success" ? "bg-green-500" : "bg-red-500"}`}
                 >
                     {toast.message}
                 </div>
             )}
+
         </form>
     );
 }

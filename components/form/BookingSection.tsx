@@ -3,7 +3,7 @@
 import { useState } from "react";
 import BookingForm from "./BookingForm";
 
-export default function BookingSection({ productId, pricePerDay }: { productId: number; pricePerDay: number }) {
+export default function BookingSection({ productId }: { productId: number }) {
     const [isBookingOpen, setIsBookingOpen] = useState(false);
 
     return (
@@ -16,8 +16,9 @@ export default function BookingSection({ productId, pricePerDay }: { productId: 
                     Book Now
                 </button>
             ) : (
-                <BookingForm productId={productId} pricePerDay={pricePerDay} />
+                <BookingForm productId={productId} />
             )}
         </div>
     );
 }
+

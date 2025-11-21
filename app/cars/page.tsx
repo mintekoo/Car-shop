@@ -53,9 +53,9 @@ function ProductCardInline({ p }: { p: Product }) {
       <div className="space-y-3 p-4">
         <div className="flex items-start justify-between gap-3">
           <h3 className="text-base font-semibold leading-6">{p.title}</h3>
-          <span className="rounded-full bg-muted-50 px-2 py-1 text-xs font-medium text-muted-700 dark:bg-zinc-800 dark:text-zinc-300">
+          {/* <span className="rounded-full bg-muted-50 px-2 py-1 text-xs font-medium text-muted-700 dark:bg-zinc-800 dark:text-zinc-300">
             ETB {p.pricePerDay}/day
-          </span>
+          </span> */}
         </div>
         <p className="text-sm text-zinc-600 dark:text-zinc-400">
           {p.make} {p.model} • {p.year}
