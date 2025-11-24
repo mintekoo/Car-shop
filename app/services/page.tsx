@@ -52,16 +52,16 @@ export default async function ServicesPage(props: {
 
                                 {/* Content */}
                                 <div className="space-y-3 p-4">
-                                    <time className="text-xs text-zinc-500">
+                                    {/* <time className="text-xs text-zinc-500">
                                         {s.createdAt ? new Date(s.createdAt).toLocaleDateString() : ""}
-                                    </time>
+                                    </time> */}
                                     <h3 className="text-base font-semibold leading-6">{s.name}</h3>
                                     <p className="line-clamp-3 text-sm text-zinc-600 dark:text-zinc-400">
                                         {s.description}
                                     </p>
-                                    <p className="text-sm font-medium text-primary">
+                                    {/* <p className="text-sm font-medium text-primary">
                                         ETB {s.price.toFixed(0)}
-                                    </p>
+                                    </p> */}
                                 </div>
 
                                 {/* View Details Button */}

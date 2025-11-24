@@ -33,9 +33,9 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
                     <article className="prose prose-zinc mt-6 max-w-none dark:prose-invert">
                         <p>{service.description}</p>
-                        <p className="mt-6 text-lg font-semibold text-primary">
+                        {/* <p className="mt-6 text-lg font-semibold text-primary">
                             Price: ETB {service.price.toFixed(0)}
-                        </p>
+                        </p> */}
                     </article>
                 </div>
             </Container>

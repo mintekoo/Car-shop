@@ -9,7 +9,7 @@ import Container from "@/components/ui/Container";
 // Define your navigation links
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/cars", label: "Products" },
+  { href: "/cars", label: "Car" },
   { href: "/categories", label: "Our Fleet" },
   { href: "/blogs", label: "Blog" },
   { href: "/abouts", label: "About" },
@@ -18,10 +18,11 @@ const navLinks = [
   { href: "/partners", label: "Partners" },
   { href: "/galleries", label: "Gallery" },
   { href: "/contacts", label: "Contact Us" },
+  { href: "/rentals", label: "Rentals" },
 ];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false); // 3. State for mobile menu visibility
+  const [isOpen, setIsOpen] = useState(false);
 
   // Toggle function
   const toggleMenu = () => {

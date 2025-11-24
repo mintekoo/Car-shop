@@ -38,16 +38,16 @@ export default async function PartnersPage(props: {
                             <div
                                 key={p.id}
                                 className="group rounded-2xl bg-white shadow-sm ring-1 ring-zinc-200 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-md dark:bg-zinc-950 dark:ring-zinc-800"
-                            >
-                                <div className="relative aspect-video overflow-hidden rounded-t-2xl">
+                            ><div className="relative aspect-video overflow-hidden rounded-t-2xl bg-white">
                                     <Image
                                         src={fullImage}
                                         alt={p.name}
                                         fill
-                                        className="object-cover"
+                                        className="object-contain"
                                         unoptimized
                                     />
                                 </div>
+
                                 <div className="p-4">
                                     <h3 className="text-lg font-semibold">{p.name}</h3>
                                     {p.contact && p.contact.length > 0 ? (

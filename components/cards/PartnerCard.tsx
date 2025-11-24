@@ -20,7 +20,8 @@ export default function PartnerCard({ partner }: { partner: PartnerCardType }) {
                         alt={partner.name}
                         fill
                         unoptimized
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="object-contain transition-transform duration-500 group-hover:scale-105 p-2 bg-white"
+                        sizes="100%"
                     />
                 ) : (
                     <div className="flex h-full w-full items-center justify-center text-zinc-400">

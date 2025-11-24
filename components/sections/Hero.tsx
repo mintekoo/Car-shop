@@ -27,7 +27,8 @@ export default function Hero({ featuredProducts }: HeroProps) {
             </h1>
 
             <p className="max-w-prose text-zinc-600 dark:text-zinc-400">
-              Adinas Car Rental – Your Trusted Partner in Safe, Reliable, and Efficient Transport Solutions!
+              Elevate your travel experience with Adinas.
+              Shall be our leading tagline
             </p>
 
             <div className="flex flex-col items-center gap-3 sm:flex-row">

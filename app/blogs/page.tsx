@@ -21,14 +21,17 @@ export default async function BlogsPage(props: {
   const page = getPageParam(sp, "page");
   const resp = await fetchBlogs({ page });
   const data = resp?.blogs ?? [];
+
   return (
     <main className="bg-background text-foreground dark:bg-backgroundDark dark:text-foregroundDark">
       <Container className="py-12 sm:py-16 lg:py-20">
         <SectionHeader title="Latest Articles" subtitle="News, tips, and stories from the road." />
+
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {data?.length > 0 ? (
+          {data.length > 0 ? (
             data.map((b: Blog) => {
-              const fullImage = b?.image ? `${API_BASE_URL}/${b.image}` : "/window.svg";
+              const fullMedia = b?.image ? `${API_BASE_URL}/${b.image}` : "/window.svg";
+              const isVideo = fullMedia?.match(/\.(mp4|webm|mkv|ogg)$/i);
 
               return (
                 <Link
@@ -37,13 +40,21 @@ export default async function BlogsPage(props: {
                   className="group rounded-2xl bg-white shadow-sm ring-1 ring-zinc-200 transition hover:-translate-y-0.5 hover:shadow-md dark:bg-zinc-950 dark:ring-zinc-800 animate-fade-in"
                 >
                   <div className="relative aspect-video overflow-hidden rounded-t-2xl">
-                    <Image
-                      src={fullImage}
-                      alt={b.title}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      unoptimized
-                    />
+                    {isVideo ? (
+                      <video
+                        src={fullMedia}
+                        controls
+                        className="w-full h-full object-cover bg-black"
+                      />
+                    ) : (
+                      <Image
+                        src={fullMedia}
+                        alt={b.title}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        unoptimized
+                      />
+                    )}
                   </div>
 
                   <div className="space-y-3 p-4">
@@ -67,7 +78,6 @@ export default async function BlogsPage(props: {
           ) : (
             <p className="text-center text-gray-500">No blogs found.</p>
           )}
-
         </div>
       </Container>
     </main>
