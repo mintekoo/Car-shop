@@ -17,26 +17,26 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.carshop.example"),
+  metadataBase: new URL("https://api.adinascarrent.com"),
   title: {
-    default: "CarShop — Modern Car Store",
-    template: "%s | CarShop",
+    default: "Adinas Car Rent ",
+    template: "%s | Adinas Car Rent",
   },
   description:
     "Discover premium cars with transparent pricing, expert insights, and a modern shopping experience.",
   openGraph: {
-    title: "CarShop — Modern Car Store",
+    title: "Adinas Car Rent ",
     description:
       "Discover premium cars with transparent pricing, expert insights, and a modern shopping experience.",
-    url: "https://www.carshop.example/",
-    siteName: "CarShop",
-    images: [{ url: "/next.svg", width: 1200, height: 630, alt: "CarShop" }],
+    url: "https://api.adinascarrent.com/",
+    siteName: "Adinas Car Rent",
+    images: [{ url: "/next.svg", width: 1200, height: 630, alt: "Adinas Car Rent" }],
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "CarShop — Modern Car Store",
+    title: "Adinas Car Rent ",
     description:
       "Discover premium cars with transparent pricing, expert insights, and a modern shopping experience.",
     images: ["/next.svg"],

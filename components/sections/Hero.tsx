@@ -27,7 +27,7 @@ export default function Hero({ featuredProducts }: HeroProps) {
             </h1>
 
             <p className="max-w-prose text-zinc-600">
-              Elevate your travel experience with Adinas. Shall be our leading tagline.
+              Elevate your travel experience with Adinas.
             </p>
 
             <div className="flex flex-col items-center gap-3 sm:flex-row">

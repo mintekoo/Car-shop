@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Container from "@/components/ui/Container";
 import ThemeToggle from "@/components/theme/ThemeToggle";
@@ -26,15 +26,23 @@ export default function Navbar() {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isOpen]);
+
   return (
     <header className="sticky top-0 z-40 w-full backdrop-blur border-b border-primary">
       <Container className="flex h-16 items-center justify-between">
-        {/* Logo Section */}
-
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-2 ">
           <Image
             src="/logo.png"
-            alt="CarShop Logo"
+            alt="Adinas Car Rent Logo"
             width={200}
             height={50}
             priority
@@ -42,37 +50,38 @@ export default function Navbar() {
           />
         </Link>
 
-
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6 text-sm">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="hover:text-primary-600 transition-colors"
+              className="text-foreground hover:text-primary transition-colors"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        {/* Action Buttons and Theme Toggle */}
+        {/* Action Buttons + Theme Toggle */}
         <div className="flex items-center gap-3">
-          {/* <Link
-            href="#login"
-            className="hidden md:block rounded-full border border-primary px-4 py-2 text-sm hover:bg-primary/10"
-          >
-            Login
-          </Link> */}
           <Link
             href="/cars"
-            className="hidden md:block rounded-full bg-primary px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-primary-dark"
+            className="hidden md:block rounded-full px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors"
+            style={{ backgroundColor: "var(--color-primary)" }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.backgroundColor = "var(--color-primary-hover)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.backgroundColor = "var(--color-primary)")
+            }
           >
             Book Now
           </Link>
+
           <ThemeToggle />
 
-          {/* Hamburger Button for Mobile */}
+          {/* Hamburger for Mobile */}
           <button
             onClick={toggleMenu}
             className="md:hidden p-2 text-gray-700 dark:text-gray-300 hover:bg-zinc-100 dark:hover:bg-zinc-700 rounded-lg transition-colors"
@@ -85,8 +94,9 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute w-full bg-white dark:bg-black border-b border-primary/60 transition-all duration-300 ease-in-out ${isOpen ? "max-h-screen opacity-100 py-4" : "max-h-0 opacity-0 overflow-hidden"
+        className={`md:hidden absolute w-full transition-all duration-300 ease-in-out ${isOpen ? "max-h-[95vh] opacity-100 py-4 overflow-y-auto" : "max-h-0 opacity-0 overflow-hidden"
           }`}
+        style={{ backgroundColor: "var(--color-background)" }}
       >
         <nav className="flex flex-col items-start gap-4 p-4 text-base">
           {navLinks.map((link) => (
@@ -94,7 +104,7 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={toggleMenu}
-              className="w-full py-2 hover:text-primary-600 transition-colors border-b border-primary/30"
+              className="w-full py-2 border-b border-primary/30 text-foreground hover:text-primary transition-colors"
             >
               {link.label}
             </Link>
@@ -102,7 +112,7 @@ export default function Navbar() {
           {/* <Link
             href="#login"
             onClick={toggleMenu}
-            className="w-full mt-2 rounded-full border border-primary px-4 py-2 text-sm text-center hover:bg-primary/10"
+            className="w-full mt-2 rounded-full border border-primary px-4 py-2 text-sm text-center text-foreground hover:text-primary transition-colors"
           >
             Login
           </Link> */}

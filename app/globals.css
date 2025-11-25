@@ -6,6 +6,7 @@
   --color-foreground: #171717;
   --color-primary: #d32f2f;
   --color-muted: #5c5c5c;
+  --color-primary-hover: #c62828;
 
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", monospace;

@@ -15,17 +15,17 @@ import { fetchAbouts, fetchProducts, fetchServices, fetchCategories, fetchBlogs,
 import type { Product, Category, Blog, Service, About, Testimonial, Partner } from "@/lib/types";
 
 export const metadata = {
-  title: "CarShop — Modern Car Store",
+  title: "Adinas Car Rent",
   description: "Discover premium cars with transparent pricing, expert insights, and a modern shopping experience.",
   openGraph: {
-    title: "CarShop — Modern Car Store",
+    title: "Adinas Car Rent",
     description: "Discover premium cars with transparent pricing, expert insights, and a modern shopping experience.",
-    siteName: "CarShop",
+    siteName: "Adinas Car Rent",
     images: [
       {
         width: 1200,
         height: 630,
-        alt: "CarShop",
+        alt: "Adinas Car Rent",
       },
     ],
     locale: "en_US",
@@ -33,7 +33,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CarShop — Modern Car Store",
+    title: "Adinas Car Rent",
     description: "Discover premium cars with transparent pricing, expert insights, and a modern shopping experience.",
   },
   robots: "index, follow",
