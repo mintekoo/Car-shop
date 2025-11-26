@@ -10,6 +10,7 @@
     "clean": "rm -rf .next && echo 'Cleaned .next folder'"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.5.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.553.0",
     "next": "16.0.1",
