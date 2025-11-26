@@ -4,7 +4,8 @@ const nextConfig: NextConfig = {
   images: {
     domains: [
       // 'localhost'
-      'api.adinascarrent.com'
+      // 'api.adinascarrent.com'
+      'apiadinas.time-bingo.com'
     ],
   },
   /* config options here */
