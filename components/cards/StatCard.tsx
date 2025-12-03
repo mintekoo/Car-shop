@@ -14,6 +14,13 @@ export default function StatCard({
     const animatedValue = useCountUp(value, 3000);
     const [hover, setHover] = useState(false);
 
+    // Format numbers for display
+    const formatDisplay = (num: number) => {
+        if (num >= 1_000_000) return (num / 1_000_000).toFixed(1) + "M";
+        if (num >= 1_000) return (num / 1_000).toFixed(1) + "K";
+        return num.toString();
+    };
+
     return (
         <div
             onMouseEnter={() => setHover(true)}
@@ -29,7 +36,9 @@ export default function StatCard({
             >
                 {/* Front */}
                 <div className="absolute inset-0 backface-hidden flex flex-col items-center justify-center p-4">
-                    <span className="text-4xl font-bold text-primary">{animatedValue}+</span>
+                    <span className="text-4xl font-bold text-primary">
+                        {formatDisplay(animatedValue)}+
+                    </span>
                     <p className="mt-2 text-muted text-center">{title}</p>
                 </div>
 

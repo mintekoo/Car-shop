@@ -1,8 +1,11 @@
+"use client";
+
 import Container from "@/components/ui/Container";
-import TestimonialCard, { TestimonialCardType } from "@/components/cards/TestimonialCard";
+import TestimonialCard, { type TestimonialCardType } from "@/components/cards/TestimonialCard";
 import { Testimonial as BackendTestimonial } from "@/lib/types";
-import Link from "next/link";
+import AutoCarousel from "@/components/ui/AutoCarousel";
 import { API_BASE_URL } from "@/lib/api";
+import Link from "next/link";
 
 function mapBackendTestimonial(t: BackendTestimonial): TestimonialCardType {
   const fullImage = t.image
@@ -40,11 +43,13 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <AutoCarousel speed={7000} gap={24} pauseOnHover>
           {cardTestimonials.map((t) => (
-            <TestimonialCard key={t.id} testimonial={t} />
+            <div key={t.id} className="w-full sm:w-[400px] md:w-[500px] flex-shrink-0">
+              <TestimonialCard testimonial={t} />
+            </div>
           ))}
-        </div>
+        </AutoCarousel>
       </Container>
     </section>
   );

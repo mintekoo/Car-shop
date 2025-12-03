@@ -50,7 +50,7 @@ export default async function PartnersPage(props: {
 
                                 <div className="p-4">
                                     <h3 className="text-lg font-semibold">{p.name}</h3>
-                                    {p.contact && p.contact.length > 0 ? (
+                                    {/* {p.contact && p.contact.length > 0 ? (
                                         <ul className="mt-1 text-sm text-muted-700 dark:text-zinc-400">
                                             {p.contact.map((c, i) => (
                                                 <li key={i}>{c}</li>
@@ -58,7 +58,7 @@ export default async function PartnersPage(props: {
                                         </ul>
                                     ) : (
                                         <p className="mt-1 text-sm text-muted-400">No contact info</p>
-                                    )}
+                                    )} */}
                                 </div>
                             </div>
                         );

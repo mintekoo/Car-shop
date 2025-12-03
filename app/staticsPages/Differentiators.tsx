@@ -17,8 +17,8 @@ export default function Differentiators() {
     return (
         <section className="py-16 bg-background">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-3xl font-extrabold text-center mb-10 text-foreground">
-                    Key Differentiators
+                <h2 className="text-3xl font-extrabold text-center mb-10 text-foreground text-primary">
+                    Why Choose Us
                 </h2>
 
                 <VerticalDualCarousel>

@@ -1,5 +1,5 @@
 // app/page.tsx
-import Hero from "@/components/sections/Hero";
+// import Hero from "@/components/sections/Hero";
 import ProductsSection from "@/components/sections/ProductsSection";
 import CategoriesSection from "@/components/sections/CategoriesSection";
 import BlogSection from "@/components/sections/BlogSection";
@@ -69,7 +69,7 @@ export default async function Home() {
 
   return (
     <main className="bg-background text-foreground">
-      <Hero featuredProducts={featuredProducts} />
+      {/* <Hero featuredProducts={featuredProducts} /> */}
       <CategoriesSection categories={categories.slice(0, 6)} />
       <ProductsSection products={featuredProducts} />
       <BlogSection blogs={recentBlogs} />

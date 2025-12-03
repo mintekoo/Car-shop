@@ -1,42 +1,71 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import Container from "@/components/ui/Container";
 import ThemeToggle from "@/components/theme/ThemeToggle";
 import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
+
+gsap.registerPlugin(ScrollTrigger);
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/cars", label: "Car" },
-  { href: "/categories", label: "Our Fleet" },
+  // { href: "/categories", label: "Our Fleet" },
   { href: "/blogs", label: "Blog" },
   { href: "/abouts", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/testimonials", label: "Testimonials" },
-  { href: "/partners", label: "Partners" },
+  // { href: "/partners", label: "Partners" },
   { href: "/galleries", label: "Gallery" },
   { href: "/contacts", label: "Contact Us" },
-  { href: "/rentals", label: "Rentals" },
+  { href: "/rentals", label: "Register Car" },
 ];
 
 export default function Navbar() {
+  const navRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!navRef.current) return;
+
+    ScrollTrigger.create({
+      start: 0,
+      end: 99999,
+      onUpdate: (self) => {
+        if (self.scroll() > 50) {
+          gsap.to(navRef.current, {
+            backgroundColor: "rgba(255,255,255,0.95)",
+            boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+            duration: 0.3,
+          });
+        } else {
+          gsap.to(navRef.current, {
+            backgroundColor: "transparent",
+            boxShadow: "none",
+            duration: 0.3,
+          });
+        }
+      },
+    });
+  }, []);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
+    return () => {
       document.body.style.overflow = "auto";
-    }
+    };
   }, [isOpen]);
 
+
   return (
-    <header className="sticky top-0 z-40 w-full backdrop-blur border-b border-primary">
+    <header className="sticky top-0 z-40 w-full backdrop-blur ">
       <Container className="flex h-16 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 ">
@@ -67,14 +96,8 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <Link
             href="/cars"
-            className="hidden md:block rounded-full px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors"
-            style={{ backgroundColor: "var(--color-primary)" }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.backgroundColor = "var(--color-primary-hover)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.backgroundColor = "var(--color-primary)")
-            }
+            className="hidden md:block rounded-full px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors bg-primary hover:bg-primary-hover"
+
           >
             Book Now
           </Link>

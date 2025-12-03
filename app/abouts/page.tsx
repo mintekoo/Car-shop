@@ -1,10 +1,11 @@
 // app/about/page.tsx
 import Container from "@/components/ui/Container";
 import SectionHeader from "@/components/ui/SectionHeader";
-import { fetchAbouts, API_BASE_URL } from "@/lib/api";
+import { fetchAbouts, fetchPartners, API_BASE_URL } from "@/lib/api";
 import type { About } from "@/lib/types";
 import Image from "next/image";
 import Excellence from "@/app/staticsPages/Excellence";
+import PartnersSection from "@/components/sections/PartnersSection";
 
 function getPageParam(sp: { [key: string]: string | string[] | undefined }, key: string) {
     const raw = sp?.[key];
@@ -20,6 +21,9 @@ export default async function AboutPage(props: {
     const page = getPageParam(sp, "page");
     const resp = await fetchAbouts({ page });
     const data = resp?.abouts ?? [];
+
+    const respartners = await fetchPartners();
+    const partners = respartners?.data ?? [];
 
     return (
         <main className="bg-background text-foreground dark:bg-backgroundDark dark:text-foregroundDark">
@@ -76,6 +80,10 @@ export default async function AboutPage(props: {
                 {/* Excellence Section */}
                 <div className="mt-20">
                     <Excellence />
+                </div>
+                {/* Partners Section */}
+                <div className="mt-20">
+                    <PartnersSection partners={partners} />
                 </div>
             </Container>
         </main>

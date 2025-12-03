@@ -7,7 +7,7 @@ export default function Excellence() {
     { title: "Vehicles Mobilized", value: 1000 },
     { title: "Owned and Leased Vehicles", value: 40 },
     { title: "Satellite Branches", value: 3 },
-    { title: "ETB Managed in Transactions", value: 250_000_000 },
+    { title: "ETB Managed in Transactions", value: 250_000_0 },
   ];
 
   return (

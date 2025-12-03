@@ -24,8 +24,6 @@ export default function RentalForm({ rentalId, onSuccess }: RentalFormProps) {
     const [features, setFeatures] = useState<string[]>([]);
     const [images, setImages] = useState<File[]>([]);
     const [previewImages, setPreviewImages] = useState<string[]>([]);
-    const [startDate, setStartDate] = useState("");
-    const [endDate, setEndDate] = useState("");
     const [loading, setLoading] = useState(false);
     const router = useRouter();
     const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
@@ -58,10 +56,6 @@ export default function RentalForm({ rentalId, onSuccess }: RentalFormProps) {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (!fullName || !phone || !price || !startDate || !endDate) {
-            return setToast({ message: "Please fill all required fields", type: "error" });
-        }
-
         if (!isValidEthiopianPhone(phone)) {
             return setToast({ message: "Invalid phone number format", type: "error" });
         }
@@ -78,8 +72,6 @@ export default function RentalForm({ rentalId, onSuccess }: RentalFormProps) {
         formData.append("Phone", normalizedPhone);
         formData.append("price", price.toString());
         formData.append("features", JSON.stringify(features));
-        formData.append("startDate", startDate);
-        formData.append("endDate", endDate);
         images.forEach((file) => formData.append("images", file));
 
         try {
@@ -184,29 +176,6 @@ export default function RentalForm({ rentalId, onSuccess }: RentalFormProps) {
                         </div>
                     ))}
                 </div>
-            </div>
-
-            {/* Dates */}
-            <div>
-                <label className="block text-sm font-medium">Start Date</label>
-                <input
-                    type="date"
-                    value={startDate}
-                    onChange={(e) => setStartDate(e.target.value)}
-                    className="mt-1 w-full border rounded-md px-3 py-2"
-                    required
-                />
-            </div>
-
-            <div>
-                <label className="block text-sm font-medium">End Date</label>
-                <input
-                    type="date"
-                    value={endDate}
-                    onChange={(e) => setEndDate(e.target.value)}
-                    className="mt-1 w-full border rounded-md px-3 py-2"
-                    required
-                />
             </div>
 
             {/* Submit */}

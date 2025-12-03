@@ -14,7 +14,7 @@ export default function Clients() {
     return (
         <section className="py-16 bg-background">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 className="text-3xl font-extrabold text-foreground mb-10">
+                <h2 className="text-3xl font-extrabold text-foreground mb-10 text-primary">
                     Clients & Past Performance
                 </h2>
                 <p className="text-muted mb-8">

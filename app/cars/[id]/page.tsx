@@ -3,8 +3,8 @@ import Container from "@/components/ui/Container";
 import { fetchProduct } from "@/lib/api";
 import { API_BASE_URL } from "@/lib/api";
 import type { Product } from "@/lib/types";
-import Image from "next/image";
 import BookingSection from "@/components/form/BookingSection";
+import CarGallery from "@/components/ui/CarGallery";
 
 function parseArrayField(value: unknown): string[] {
   if (Array.isArray(value)) return value as string[];
@@ -45,28 +45,11 @@ export default async function CarDetailPage({ params }: { params: Promise<{ id: 
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           {/* Gallery */}
-          <div className="lg:col-span-2 space-y-4 animate-fade-in">
-            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-muted ring-1 ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800">
-              <Image
-                src={images[0]}
-                alt={product.title}
-                fill
-                className="object-cover"
-                loading="eager"
-                unoptimized
-              />
-            </div>
-
-            <div className="grid grid-cols-4 gap-3">
-              {images.slice(1, 9).map((src, i) => (
-                <div
-                  key={i}
-                  className="relative aspect-[4/3] overflow-hidden rounded-lg ring-1 ring-zinc-200 dark:ring-zinc-800 transition-transform duration-300 hover:scale-105"
-                >
-                  <Image src={src} alt={`${product.title} thumbnail ${i + 1}`} fill className="object-cover" unoptimized />
-                </div>
-              ))}
-            </div>
+          <div className="lg:col-span-2">
+            <CarGallery 
+              title={product.title} 
+              images={images} 
+            />
           </div>
 
           {/* Sidebar */}

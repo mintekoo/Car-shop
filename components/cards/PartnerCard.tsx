@@ -12,16 +12,11 @@ export type PartnerCardType = {
 export default function PartnerCard({ partner }: { partner: PartnerCardType }) {
     return (
         <div
-            className="group rounded-2xl shadow-sm ring-1 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-md h-[350px] flex flex-col"
-            style={{
-                backgroundColor: "var(--color-background)",
-                borderColor: "var(--color-muted)",
-            }}
+            className="group transition-transform duration-300 hover:-translate-y-0.5 flex flex-col"
         >
             {/* Image */}
             <div
                 className="relative aspect-video overflow-hidden rounded-t-2xl"
-                style={{ backgroundColor: "var(--color-muted)" }}
             >
                 {partner.imageUrl ? (
                     <Image
@@ -35,7 +30,6 @@ export default function PartnerCard({ partner }: { partner: PartnerCardType }) {
                 ) : (
                     <div
                         className="flex h-full w-full items-center justify-center"
-                        style={{ color: "var(--color-muted)" }}
                     >
                         No Image
                     </div>
@@ -43,7 +37,7 @@ export default function PartnerCard({ partner }: { partner: PartnerCardType }) {
             </div>
 
             {/* Content */}
-            <div className="p-4 flex flex-col flex-1">
+            {/* <div className="p-4 flex flex-col flex-1">
                 <h3
                     className="text-lg font-semibold mb-2"
                     style={{ color: "var(--color-foreground)" }}
@@ -62,7 +56,7 @@ export default function PartnerCard({ partner }: { partner: PartnerCardType }) {
                         <p style={{ color: "var(--color-muted)" }}>No contact info</p>
                     )}
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }

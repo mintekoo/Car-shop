@@ -17,7 +17,7 @@ export default function Contact() {
 
                 {/* Header */}
                 <div className="text-center mb-12">
-                    <h2 className="text-4xl font-extrabold text-foreground tracking-tight">
+                    <h2 className="text-4xl text-primary font-extrabold text-foreground tracking-tight">
                         Contact Us
                     </h2>
                     <p className="mt-4 text-lg text-muted">

@@ -5,6 +5,7 @@ import { About as BackendAbout } from "@/lib/types";
 import { API_BASE_URL } from "@/lib/api";
 import Image from "next/image";
 import Link from "next/link";
+import Button from "@/components/ui/Button";
 
 interface AboutSectionProps {
   abouts: BackendAbout[];
@@ -37,7 +38,7 @@ interface AboutItemProps {
 
 function AboutItem({ about }: AboutItemProps) {
   const fullImage = about.image ? `${API_BASE_URL}/${about.image}` : "/window.svg";
-  const publishDate = about.createdAt ? new Date(about.createdAt).toLocaleDateString() : "";
+  // const publishDate = about.createdAt ? new Date(about.createdAt).toLocaleDateString() : "";
 
   return (
     <Link href={`/abouts/${about.id}`} className="group block animate-fade-in">
@@ -55,7 +56,7 @@ function AboutItem({ about }: AboutItemProps) {
 
       <div className="mx-auto max-w-4xl space-y-2">
         <h3 className="text-2xl font-semibold sm:text-3xl">{about.title}</h3>
-        {publishDate && (
+        {/* {publishDate && (
           <time className="text-sm text-zinc-500 block">
             Published on {publishDate}
           </time>
@@ -87,7 +88,12 @@ function AboutItem({ about }: AboutItemProps) {
             </h4>
             <p className="">{about.values}</p>
           </section>
-        )}
+        )} */}
+        <div className="flex items-start gap-2 p-4">
+        <Link href={`/abouts`} className="flex-1">
+          <Button size="lg" className="w-full">Learn More</Button>
+        </Link>
+      </div>
       </div>
     </Link>
   );

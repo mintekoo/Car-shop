@@ -24,7 +24,7 @@ export default function PartnersSection({ partners }: PartnersSectionProps) {
   return (
     <section id="partners" className="py-14 sm:py-16 lg:py-20">
       <Container>
-        <div className="mb-8 flex items-center justify-between gap-4">
+        <div className="mb-4 flex items-center justify-between gap-2">
           <h2 className="text-2xl font-semibold sm:text-3xl">Our Partners</h2>
           <Link href="/partners" className="text-sm font-medium text-primary-600 hover:underline">
             See all
